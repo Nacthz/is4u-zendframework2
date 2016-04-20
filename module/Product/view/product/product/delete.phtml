@@ -1,0 +1,25 @@
+<?php
+$title = 'Eliminar producto';
+$this->headTitle($title);
+?>
+<h1><?php echo $title; ?></h1> 
+
+<p><h3>¿Estas seguro que deseas eliminar?</h3>
+	<br>
+	<?php echo $product->name; ?> [<?php echo $product->price_sale; ?>]
+</p>
+<?php
+$url = $this->url('product', array(
+	'action' => 'delete',
+	'id'     => $this->id,
+	));
+?>
+<form action="<?php echo $url; ?>" method="post">
+	<div>
+		<input type="hidden" name="id" value="<?php echo (int) $product->id; ?>" />
+		<div class="btn-group">
+			<input class="btn btn-default" type="submit" name="option" value="No" />
+			<input class="btn btn-danger" type="submit" name="option" value="Yes" />
+		</div>
+	</div>
+</form>

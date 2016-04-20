@@ -1,0 +1,33 @@
+<?php
+$title = 'Agregar nuevo producto';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form->setAttribute('action', $this->url('product', array('action' => 'add')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo '<div class="form-group">';
+echo $this->formRow($form->get('name')->setAttribute('class', 'form-control'));
+echo '</div>';
+echo '<div class="form-group">';
+echo $this->formRow($form->get('photo')->setAttribute('class', 'form-control'));
+echo '</div>';
+echo '<div class="form-group">';
+echo $this->formRow($form->get('detail')->setAttribute('class', 'form-control'));
+echo '</div>';
+echo '<div class="form-group">';
+echo $this->formRow($form->get('price')->setAttribute('class', 'form-control'));
+echo '</div>';
+echo '<div class="form-group">';
+echo $this->formRow($form->get('price_sale')->setAttribute('class', 'form-control'));
+echo '</div>';
+echo '<div class="form-group">';
+echo $this->formRow($form->get('quantity')->setAttribute('class', 'form-control'));
+echo '</div>';
+echo '<div class="btn-group">';
+echo $this->formSubmit($form->get('submit')->setAttribute('class', 'btn btn-primary'));
+echo '</div>';
+echo $this->form()->closeTag();

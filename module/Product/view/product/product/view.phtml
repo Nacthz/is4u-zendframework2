@@ -1,0 +1,97 @@
+<div id="content">
+	<div class="container">
+
+		<div class="col-md-12">
+			<ul class="breadcrumb">
+				<li><a href="#">Inicio</a>
+				</li>
+				<li><a href="#">Categoria</a>
+				</li>
+				<li><?php echo $this->escapeHtml($product->name); ?></li>
+			</ul>
+
+		</div>
+
+<div class="col-md-12">
+
+	<div class="row" id="productMain">
+		<div class="col-sm-6">
+			<div id="mainImage">
+				<img src="http://localhost:8080/img/<?php echo $this->escapeHtml($product->photo); ?> " alt="" class="img-responsive">
+			</div>
+
+			<div class="ribbon sale">
+				<div class="theribbon">SALE</div>
+				<div class="ribbon-background"></div>
+			</div>
+			<!-- /.ribbon -->
+
+			<div class="ribbon new">
+				<div class="theribbon">NEW</div>
+				<div class="ribbon-background"></div>
+			</div>
+			<!-- /.ribbon -->
+
+		</div>
+		<div class="col-sm-6">
+			<div class="box">
+				<h1 class="text-center"><?php echo $this->escapeHtml($product->name); ?> </h1>
+				<p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles </a>
+				</p>
+				<p class="price">$<?php echo $this->escapeHtml($product->price_sale); ?></p>
+
+				<p class="text-center buttons">
+					<a onclick="additem(<?php echo $this->escapeHtml($product->id); ?>)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+					<a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Agregar a favoritos</a>
+				</p>
+
+
+			</div>
+
+			<div class="row" id="thumbs">
+				<div class="col-xs-4">
+					<a href="http://localhost:8080/img/<?php echo $this->escapeHtml($product->photo); ?>" class="thumb">
+						<img src="http://localhost:8080/img/<?php echo $this->escapeHtml($product->photo); ?>" alt="" class="img-responsive">
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="box" id="details">
+		<p>
+			<h4>Detalle del producto</h4>
+			<p><?php echo $this->escapeHtml($product->detail); ?></p>
+			<hr>
+			<div class="social">
+				<h4>Comparte con tus amigos</h4>
+				<p>
+					<a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+					<a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+					<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+					<a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- /.col-md-9 -->
+</div>
+<!-- /.container -->
+</div>
+<script type="text/javascript">
+    function additem(id) {
+        var url = "<?php echo $this->url('info', array('action'=>'additem'));?>";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id: id,
+            },
+            success: function(response) {
+            	alert(response.status);
+            },
+        });
+    }
+</script>

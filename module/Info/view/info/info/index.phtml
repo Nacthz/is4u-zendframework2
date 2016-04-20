@@ -1,0 +1,85 @@
+<?php $this->layout()->setVariable('total_items', $total_items); ?>
+
+       <div id="content">
+            <div class="container">
+                <div class="col-md-12">
+                    <div id="main-slider">
+                        <div class="item">
+                            <img src="img/main-slider1.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="img/main-slider2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="img/main-slider3.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="img/main-slider4.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- /#main-slider -->
+                </div>
+            </div>
+            <!-- *** HOT PRODUCT SLIDESHOW ***
+ _________________________________________________________ -->
+
+            <div id="hot">
+
+                <div class="box">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h2>Más vendido en computadores</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="product-slider">
+  						<?php foreach ($products as $product) : ?>
+                        <div class="item">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="<?php echo $this->url('product',
+                array('action'=>'view', 'id' => $product->id));?>">
+                                                <img src="img/<?php echo $this->escapeHtml($product->photo);?>" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="<?php echo $this->url('product',
+                array('action'=>'view', 'id' => $product->id));?>">
+                                                <img src="img/<?php echo $this->escapeHtml($product->photo);?>" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img src="img/product1.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="<?php echo $this->url('product',
+                array('action'=>'view', 'id' => $product->id));?>"><?php echo $this->escapeHtml($product->name); ?></a></h3>
+                                    <!--http://smileprices.com/computador-portatil-hp-->
+                                    <p class="price"><?php echo $this->escapeHtml($product->price);?></p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>		
+						<?php endforeach; ?>
+                    </div>
+                    <!-- /.product-slider -->
+                </div>
+                <!-- /.container -->
+
+            </div>
+            <!-- /#hot -->
+
+            <!-- *** HOT END *** -->
+            
+
+
+          
+
+        </div>
