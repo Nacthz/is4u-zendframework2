@@ -14,9 +14,7 @@ class InfoController extends AbstractActionController
     {
         return array(
             'products' => $this->getProductTable()->fetchAll(),
-            'items' => $this->ZendCart()->cart(),
             'total_items' => $this->ZendCart()->total_items(),
-            'total' => $this->ZendCart()->total(),
         );
     }
 
@@ -45,16 +43,6 @@ class InfoController extends AbstractActionController
         ));
 
         return $result;
-    }
-
-    public function cartAction()
-    {
-        return array(
-            'products' => $this->getProductTable()->fetchAll(),
-            'items' => $this->ZendCart()->cart(),
-            'total_items' => $this->ZendCart()->total_items(),
-            'total' => $this->ZendCart()->total(),
-        );
     }
 
     public function faqAction()

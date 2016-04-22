@@ -100,10 +100,9 @@
     <div class="navbar navbar-default yamm" role="navigation" id="navbar">
         <div class="container">
             <div class="navbar-header">
-
                 <a class="navbar-brand home" href="<?php echo $this->url('home') ?>" data-animate-hover="bounce">
-                    <img src="img/logo.png" class="hidden-xs">
-                    <img src="img/logo-small.png" class="visible-xs"><span class="sr-only">Is4U- go to homepage</span>
+                    <img src="<?php echo $this->basePath('img/logo.png') ?>" class="hidden-xs">
+                    <img src=  "<?php echo $this->basePath('img/logo-small.png') ?>" class="visible-xs"><span class="sr-only">Is4U- go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
@@ -300,8 +299,7 @@
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="<?php echo $this->url('info',
-                array('action'=>'cart'));?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo $this->total_items; ?> productos en el carrito</span></a>
+                    <a href="<?php echo $this->url('cart');?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo $this->total_items; ?> productos en el carrito</span></a>
                 </div>
                 <!--/.nav-collapse -->
 

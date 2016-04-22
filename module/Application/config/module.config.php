@@ -22,6 +22,16 @@ return array(
                     ),
                 ),
             ),
+            'cart' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/cart',
+                    'defaults' => array(
+                        'controller' => 'Cart\Controller\Cart',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

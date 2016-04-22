@@ -29,7 +29,10 @@ class ProductController extends AbstractActionController
         catch (\Exception $ex) {
             return $this->redirect()->toRoute('home');
         }
-        return array('product' => $product);
+        return array(
+            'product' => $product,
+            'total_items' => $this->ZendCart()->total_items(),
+        );
     }
 
     public function addAction()

@@ -11,6 +11,7 @@ return array(
         'Application',
         'Product',
         'Info',
+        'Cart',
         'ZendCart',
     ),
 
