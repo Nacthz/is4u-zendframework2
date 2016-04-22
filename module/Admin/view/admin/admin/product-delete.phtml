@@ -2,6 +2,7 @@
 $title = 'Eliminar producto';
 $this->headTitle($title);
 ?>
+<div class="container">
 <h1><?php echo $title; ?></h1> 
 
 <p><h3>¿Estas seguro que deseas eliminar?</h3>
@@ -9,11 +10,12 @@ $this->headTitle($title);
 	<?php echo $product->name; ?> [<?php echo $product->price_sale; ?>]
 </p>
 <?php
-$url = $this->url('product', array(
-	'action' => 'delete',
+$url = $this->url('admin', array(
+	'action' => 'product-delete',
 	'id'     => $this->id,
 	));
 ?>
+
 <form action="<?php echo $url; ?>" method="post">
 	<div>
 		<input type="hidden" name="id" value="<?php echo (int) $product->id; ?>" />
@@ -23,3 +25,4 @@ $url = $this->url('product', array(
 		</div>
 	</div>
 </form>
+</div>

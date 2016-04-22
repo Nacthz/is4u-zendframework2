@@ -12,6 +12,7 @@ return array(
         'Product',
         'Info',
         'Cart',
+        'Admin',
         'ZendCart',
     ),
 

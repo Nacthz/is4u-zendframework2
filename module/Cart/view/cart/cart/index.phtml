@@ -38,12 +38,12 @@
                                         <tr>
                                             <td>
                                                 <a href="<?php echo $this->url('product',
-                array('action'=>'view', 'id' => $key['id']));?>">
+                array('id' => $key['id']));?>">
                                                     <img src="http://localhost:8080/img/<?php echo $key['options']['img'];?>" alt="<?php echo $key['id']; ?>">
                                                 </a>
                                             </td>
                                             <td><a href="<?php echo $this->url('product',
-                array('action'=>'view', 'id' => $key['id']));?>"><?php echo $key['name']; ?></a>
+                array('id' => $key['id']));?>"><?php echo $key['name']; ?></a>
                                             </td>
                                             <td>
                                                 <input type="number" value="<?php echo $key['qty']; ?>">

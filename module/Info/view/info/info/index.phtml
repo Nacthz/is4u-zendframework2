@@ -42,13 +42,13 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <a href="<?php echo $this->url('product',
-                array('action'=>'view', 'id' => $product->id));?>">
+                array('id' => $product->id));?>">
                                                 <img src="img/<?php echo $this->escapeHtml($product->photo);?>" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
                                             <a href="<?php echo $this->url('product',
-                array('action'=>'view', 'id' => $product->id));?>">
+                array('id' => $product->id));?>">
                                                 <img src="img/<?php echo $this->escapeHtml($product->photo);?>" alt="" class="img-responsive">
                                             </a>
                                         </div>
@@ -59,7 +59,7 @@
                                 </a>
                                 <div class="text">
                                     <h3><a href="<?php echo $this->url('product',
-                array('action'=>'view', 'id' => $product->id));?>"><?php echo $this->escapeHtml($product->name); ?></a></h3>
+                array('id' => $product->id));?>"><?php echo $this->escapeHtml($product->name); ?></a></h3>
                                     <!--http://smileprices.com/computador-portatil-hp-->
                                     <p class="price"><?php echo $this->escapeHtml($product->price);?></p>
                                 </div>

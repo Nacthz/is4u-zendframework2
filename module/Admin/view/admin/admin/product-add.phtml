@@ -2,9 +2,10 @@
 $title = 'Agregar nuevo producto';
 $this->headTitle($title);
 ?>
+<div class="container">
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php
-$form->setAttribute('action', $this->url('product', array('action' => 'add')));
+$form->setAttribute('action', $this->url('admin', array('action' => 'product')));
 $form->prepare();
 
 echo $this->form()->openTag($form);
@@ -31,3 +32,4 @@ echo '<div class="btn-group">';
 echo $this->formSubmit($form->get('submit')->setAttribute('class', 'btn btn-primary'));
 echo '</div>';
 echo $this->form()->closeTag();
+echo '</div>';
