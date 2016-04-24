@@ -54,9 +54,7 @@ class IndexController extends AbstractActionController
 				;
 				
 				$auth = new AuthenticationService();
-				// or prepare in the globa.config.php and get it from there. Better to be in a module, so we can replace in another module.
-				// $auth = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
-				// $sm->setService('Zend\Authentication\AuthenticationService', $auth); // You can set the service here but will be loaded only if this action called.
+				
 				$result = $auth->authenticate($authAdapter);			
 				
 				switch ($result->getCode()) {
@@ -80,6 +78,12 @@ class IndexController extends AbstractActionController
 							$sessionManager = new \Zend\Session\SessionManager();
 							$sessionManager->rememberMe($time);
 						}
+
+
+						// en el caso que este en Login, redireccione a lapagina principal despues
+						// de hacer Log in
+						return    $this->redirect()->toRoute('home', array('controller'=>'default', 'action'=>'index'));
+
 						break;
 
 					default:
@@ -92,6 +96,7 @@ class IndexController extends AbstractActionController
 			 }
 		}
 		return new ViewModel(array('form' => $form, 'messages' => $messages));
+		//return new $this->redirect()->toRoute('auth/default', array('controller' => 'index', 'action' => 'login'));		
 	}
 	
 	public function logoutAction()
