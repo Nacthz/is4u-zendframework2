@@ -13,6 +13,11 @@ use Auth\Form\ForgottenPasswordFilter;
 
 use Zend\Mail\Message;
 
+
+use Zend\Mail\Transport\Smtp as SmtpTransport;
+use Zend\Mail\Transport\SmtpOptions;
+
+
 class RegistrationController extends AbstractActionController
 {
 	protected $usersTable;	
@@ -23,10 +28,10 @@ class RegistrationController extends AbstractActionController
 		$form->get('submit')->setValue('Register');
 		
 		$request = $this->getRequest();
-        if ($request->isPost()) {
+		if ($request->isPost()) {
 			$form->setInputFilter(new RegistrationFilter($this->getServiceLocator()));
 			$form->setData($request->getPost());
-			 if ($form->isValid()) {			 
+			if ($form->isValid()) {			 
 				$data = $form->getData();
 				$data = $this->prepareData($data);
 				$auth = new Auth();
@@ -74,10 +79,10 @@ class RegistrationController extends AbstractActionController
 		$form = new ForgottenPasswordForm();
 		$form->get('submit')->setValue('Send');
 		$request = $this->getRequest();
-        if ($request->isPost()) {
+		if ($request->isPost()) {
 			$form->setInputFilter(new ForgottenPasswordFilter($this->getServiceLocator()));
 			$form->setData($request->getPost());
-			 if ($form->isValid()) {
+			if ($form->isValid()) {
 				$data = $form->getData();
 				$usr_email = $data['usr_email'];
 				$usersTable = $this->getUsersTable();
@@ -87,7 +92,7 @@ class RegistrationController extends AbstractActionController
 				$usersTable->saveUser($auth);
 				$this->sendPasswordByEmail($usr_email, $password);
 				$this->flashMessenger()->addMessage($usr_email);
-                return $this->redirect()->toRoute('auth/default', array('controller'=>'registration', 'action'=>'password-change-success'));
+				return $this->redirect()->toRoute('auth/default', array('controller'=>'registration', 'action'=>'password-change-success'));
 			}					
 		}		
 		return new ViewModel(array('form' => $form));			
@@ -113,7 +118,7 @@ class RegistrationController extends AbstractActionController
 			$this->getStaticSalt(), 
 			$data['usr_password'], 
 			$data['usr_password_salt']
-		);
+			);
 		$data['usrl_id'] = 2;
 		$data['lng_id'] = 1;
 //		$data['usr_registration_date'] = date('Y-m-d H:i:s');
@@ -125,138 +130,145 @@ class RegistrationController extends AbstractActionController
 		return $data;
 	}
 
-    public function generateDynamicSalt()
-    {
+	public function generateDynamicSalt()
+	{
 		$dynamicSalt = '';
 		for ($i = 0; $i < 50; $i++) {
 			$dynamicSalt .= chr(rand(33, 126));
 		}
-        return $dynamicSalt;
-    }
+		return $dynamicSalt;
+	}
 	
-    public function getStaticSalt()
-    {
+	public function getStaticSalt()
+	{
 		$staticSalt = '';
 		$config = $this->getServiceLocator()->get('Config');
 		$staticSalt = $config['static_salt'];		
-        return $staticSalt;
-    }
+		return $staticSalt;
+	}
 
-    public function encriptPassword($staticSalt, $password, $dynamicSalt)
-    {
+	public function encriptPassword($staticSalt, $password, $dynamicSalt)
+	{
 		return $password = md5($staticSalt . $password . $dynamicSalt);
-    }
+	}
 	
 	public function generatePassword($l = 8, $c = 0, $n = 0, $s = 0) {
 		 // get count of all required minimum special chars
-		 $count = $c + $n + $s;
-		 $out = '';
+		$count = $c + $n + $s;
+		$out = '';
 		 // sanitize inputs; should be self-explanatory
-		 if(!is_int($l) || !is_int($c) || !is_int($n) || !is_int($s)) {
-			  trigger_error('Argument(s) not an integer', E_USER_WARNING);
-			  return false;
-		 }
-		 elseif($l < 0 || $l > 20 || $c < 0 || $n < 0 || $s < 0) {
-			  trigger_error('Argument(s) out of range', E_USER_WARNING);
-			  return false;
-		 }
-		 elseif($c > $l) {
-			  trigger_error('Number of password capitals required exceeds password length', E_USER_WARNING);
-			  return false;
-		 }
-		 elseif($n > $l) {
-			  trigger_error('Number of password numerals exceeds password length', E_USER_WARNING);
-			  return false;
-		 }
-		 elseif($s > $l) {
-			  trigger_error('Number of password capitals exceeds password length', E_USER_WARNING);
-			  return false;
-		 }
-		 elseif($count > $l) {
-			  trigger_error('Number of password special characters exceeds specified password length', E_USER_WARNING);
-			  return false;
-		 }
-	 
-		 $chars = "abcdefghijklmnopqrstuvwxyz";
-		 $caps = strtoupper($chars);
-		 $nums = "0123456789";
-		 $syms = "!@#$%^&*()-+?";
-	 
+		if(!is_int($l) || !is_int($c) || !is_int($n) || !is_int($s)) {
+			trigger_error('Argument(s) not an integer', E_USER_WARNING);
+			return false;
+		}
+		elseif($l < 0 || $l > 20 || $c < 0 || $n < 0 || $s < 0) {
+			trigger_error('Argument(s) out of range', E_USER_WARNING);
+			return false;
+		}
+		elseif($c > $l) {
+			trigger_error('Number of password capitals required exceeds password length', E_USER_WARNING);
+			return false;
+		}
+		elseif($n > $l) {
+			trigger_error('Number of password numerals exceeds password length', E_USER_WARNING);
+			return false;
+		}
+		elseif($s > $l) {
+			trigger_error('Number of password capitals exceeds password length', E_USER_WARNING);
+			return false;
+		}
+		elseif($count > $l) {
+			trigger_error('Number of password special characters exceeds specified password length', E_USER_WARNING);
+			return false;
+		}
 
-		 for($i = 0; $i < $l; $i++) {
-			  $out .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
-		 }
-	 
+		$chars = "abcdefghijklmnopqrstuvwxyz";
+		$caps = strtoupper($chars);
+		$nums = "0123456789";
+		$syms = "!@#$%^&*()-+?";
 
-		 if($count) {
 
-			  $tmp1 = str_split($out);
-			  $tmp2 = array();
-	 
+		for($i = 0; $i < $l; $i++) {
+			$out .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+		}
 
-			  for($i = 0; $i < $c; $i++) {
-				   array_push($tmp2, substr($caps, mt_rand(0, strlen($caps) - 1), 1));
-			  }
-			  for($i = 0; $i < $n; $i++) {
-				   array_push($tmp2, substr($nums, mt_rand(0, strlen($nums) - 1), 1));
-			  }
-			  for($i = 0; $i < $s; $i++) {
-				   array_push($tmp2, substr($syms, mt_rand(0, strlen($syms) - 1), 1));
-			  }
-	 
+
+		if($count) {
+
+			$tmp1 = str_split($out);
+			$tmp2 = array();
+
+
+			for($i = 0; $i < $c; $i++) {
+				array_push($tmp2, substr($caps, mt_rand(0, strlen($caps) - 1), 1));
+			}
+			for($i = 0; $i < $n; $i++) {
+				array_push($tmp2, substr($nums, mt_rand(0, strlen($nums) - 1), 1));
+			}
+			for($i = 0; $i < $s; $i++) {
+				array_push($tmp2, substr($syms, mt_rand(0, strlen($syms) - 1), 1));
+			}
+
 			  // hack off a chunk of the base password array that's as big as the special chars array
-			  $tmp1 = array_slice($tmp1, 0, $l - $count);
+			$tmp1 = array_slice($tmp1, 0, $l - $count);
 			  // merge special character(s) array with base password array
-			  $tmp1 = array_merge($tmp1, $tmp2);
+			$tmp1 = array_merge($tmp1, $tmp2);
 			  // mix the characters up
-			  shuffle($tmp1);
+			shuffle($tmp1);
 			  // convert to string for output
-			  $out = implode('', $tmp1);
-		 }
-	 
-		 return $out;
+			$out = implode('', $tmp1);
+		}
+
+		return $out;
 	}
 	
-    public function getUsersTable()
-    {
-        if (!$this->usersTable) {
-            $sm = $this->getServiceLocator();
-            $this->usersTable = $sm->get('Auth\Model\UsersTable');
-        }
-        return $this->usersTable;
-    }
+	public function getUsersTable()
+	{
+		if (!$this->usersTable) {
+			$sm = $this->getServiceLocator();
+			$this->usersTable = $sm->get('Auth\Model\UsersTable');
+		}
+		return $this->usersTable;
+	}
 
 	public function sendConfirmationEmail($auth)
 	{
-		// $view = $this->getServiceLocator()->get('View');
+		
+		$localIP = getHostByName(getHostName());
+		//se crea el medio de transporte
 		$transport = $this->getServiceLocator()->get('mail.transport');
+		//echo $auth->usr_email;
+		//aqui se añade el mensaje para el transportador 
 		$message = new Message();
-		$this->getRequest()->getServer();  //Server vars
 		$message->addTo($auth->usr_email)
-				->addFrom('praktiki@coolcsn.com')
-				->setSubject('Please, confirm your registration!')
-				->setBody("Please, click the link to confirm your registration => " . 
-					$this->getRequest()->getServer('HTTP_ORIGIN') .
-					$this->url()->fromRoute('auth/default', array(
-						'controller' => 'registration', 
-						'action' => 'confirm-email', 
-						'id' => $auth->usr_registration_token)));
+		->addFrom('Is4u.jukan@gmail.com')
+		->setSubject('Mensaje de confirmacion de registro Is4u')
+		->setBody("Profavor, Haga click al link para confirmar su registro => " . 
+	//			$this->getRequest()->getServer('HTTP_ORIGIN') 
+			'http://'.
+			$localIP.
+			$this->url()->fromRoute('auth/default', array(
+				'controller' => 'registration', 
+				'action' => 'confirm-email', 
+				'id' => $auth->usr_registration_token)));
+		//se envia el paquete o correo.
 		$transport->send($message);
-	}
+		
+}
 
-	public function sendPasswordByEmail($usr_email, $password)
-	{
-		$transport = $this->getServiceLocator()->get('mail.transport');
-		$message = new Message();
+public function sendPasswordByEmail($usr_email, $password)
+{
+	$transport = $this->getServiceLocator()->get('mail.transport');
+	$message = new Message();
 		$this->getRequest()->getServer();  //Server vars
 		$message->addTo($usr_email)
-				->addFrom('praktiki@coolcsn.com')
-				->setSubject('Your password has been changed!')
-				->setBody("Your password at  " . 
-					$this->getRequest()->getServer('HTTP_ORIGIN') .
-					' has been changed. Your new password is: ' .
-					$password
-				);
+		->addFrom('praktiki@coolcsn.com')
+		->setSubject('Your password has been changed!')
+		->setBody("Your password at  " . 
+			$this->getRequest()->getServer('HTTP_ORIGIN') .
+			' has been changed. Your new password is: ' .
+			$password
+			);
 		$transport->send($message);		
 	}	
 }
