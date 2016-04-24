@@ -9,7 +9,7 @@ use Zend\Db\TableGateway\TableGateway;
 
 // Add this for SMTP transport
 use Zend\ServiceManager\ServiceManager;
-use Zend\Mail\Transport\Smtp;
+use Zend\Mail\Transport\Smtp as SmtpTransport;
 use Zend\Mail\Transport\SmtpOptions;
 
 class Module
@@ -50,8 +50,13 @@ class Module
 				// Add this for SMTP transport
 				'mail.transport' => function (ServiceManager $serviceManager) {
 					$config = $serviceManager->get('Config'); 
-					$transport = new Smtp();                
-					$transport->setOptions(new SmtpOptions($config['mail']['transport']['options']));
+					//$transport = new Smtp();  
+                    $transport = new SmtpTransport();
+                    //echo $config['mail'];
+                    //echo '<pre>'; print_r($config); echo '</pre>';
+
+                    $options   = new SmtpOptions($config['mail']['transport']['options']);
+					$transport->setOptions($options);
 					return $transport;
 				},
             ),
