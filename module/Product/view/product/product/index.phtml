@@ -1,4 +1,9 @@
+
 <?php $this->layout()->setVariable('total_items', $total_items); ?>
+<?php $this->layout()->setVariable('og_url', $this->url('product', array('id' => $product->id))); ?>
+<?php $this->layout()->setVariable('og_title', $product->name); ?>
+<?php $this->layout()->setVariable('og_description', $product->detail); ?>
+<?php $this->layout()->setVariable('og_image', $this->basePath('img/' . $product->photo)); ?>
 
 <div id="content">
 	<div class="container">
@@ -52,8 +57,8 @@
 
 			<div class="row" id="thumbs">
 				<div class="col-xs-4">
-					<a href="http://localhost:8080/img/<?php echo $this->escapeHtml($product->photo); ?>" class="thumb">
-						<img src="http://localhost:8080/img/<?php echo $this->escapeHtml($product->photo); ?>" alt="" class="img-responsive">
+					<a href="<?php echo $this->basePath('img/' . $product->photo); ?>" class="thumb">
+						<img src="<?php echo $this->basePath('img/' . $product->photo); ?>" alt="" class="img-responsive">
 					</a>
 				</div>
 			</div>
@@ -63,20 +68,23 @@
 
 
 	<div class="box" id="details">
-		<p>
-			<h4>Detalle del producto</h4>
+	<div class="row">
+	 <div class="col-md-6">
+	 			<h4>Detalle del producto</h4>
 			<p><?php echo $this->escapeHtml($product->detail); ?></p>
 			<hr>
 			<div class="social">
 				<h4>Comparte con tus amigos</h4>
-				<p>
-					<a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-				</p>
+				<p><div class="fb-share-button" data-href="<?php echo $this->url('product',
+                array('id' => $product->id));?>" data-layout="button_count" data-mobile-iframe="true"></div>
 			</div>
-		</div>
+	 </div>
+		 <div class="col-md-6">
+		  <div id="fb-root"></div>
+		 <div class="fb-comments" data-href="" data-width="486" data-num-posts="3"></div>
+		 </div>
+	</div>
+	</div>
 	</div>
 	<!-- /.col-md-9 -->
 </div>
@@ -96,4 +104,13 @@
             },
         });
     }
+</script>
+<script type="text/javascript">
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=205972183119645";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>
