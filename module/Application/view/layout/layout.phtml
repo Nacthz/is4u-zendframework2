@@ -5,16 +5,13 @@
     <title>Is4U</title>
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
-<<<<<<< HEAD
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Obaju e-commerce template">
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="author" content="Juliana Rojas | Karen Mantilla | ondrejsvestka.cz">
     <meta name="keywords" content="">    
     <meta name="keywords" content="">
 
-    <!-- Le styles -->
-=======
     <meta name="author" content="Juliana Rojas | Karen Mantilla | Ondrej Svestka">
     <meta property="og:url"           content="<?php echo $this->og_url; ?>" />
     <meta property="og:type"          content="website" />
@@ -22,7 +19,6 @@
     <meta property="og:description"   content="<?php echo $this->og_description; ?>" />
     <meta property="og:image"         content="<?php echo $this->og_image; ?>" />
 
->>>>>>> 8417aa33162c2ed8aa9d3ad3db55916aa1a4ee3c
     <?php echo $this->headLink(
         array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))      
     ->prependStylesheet($this->basePath('css/style.css'))
@@ -35,10 +31,6 @@
     ->prependStylesheet($this->basePath('css/font-awesome.css'))
     ->prependStylesheet($this->basePath('css/roboto.css')) ?>
 
-<<<<<<< HEAD
-    <!-- Scripts -->
-=======
->>>>>>> 8417aa33162c2ed8aa9d3ad3db55916aa1a4ee3c
     <?php echo $this->headScript()
     ->prependFile($this->basePath('js/front.js'))
     ->prependFile($this->basePath('js/owl.carousel.min.js'))
@@ -54,64 +46,43 @@
     ; ?>
 </head>
 <body>
-<<<<<<< HEAD
-
-    <!-- *** TOPBAR ***
-    _________________________________________________________ -->
-
-
-
-
-=======
->>>>>>> 8417aa33162c2ed8aa9d3ad3db55916aa1a4ee3c
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">OFERTA DEL DÍA</a>  <a href="#">descuento en algunos productos</a>
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
-<<<<<<< HEAD
                 <?php echo $this->escapeHtml($this->messages); ?>
 
 <?php // view helper
 if ($user = $this->identity()) {
-        echo '<font color=#ffffff>';
-        echo '<ul class="menu">
-            <li>';
+    echo '<font color=#ffffff>';
+    echo '<ul class="menu">
+    <li>';
 
         echo $this->escapeHtml($user->usr_name);
         echo '</li>';
-        
+
         ?>   
 
-        
-            <li>
-             <a href="<?php echo $this->url('auth/default', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a> 
-            </li>
-        </ul>   
-        </font>
-            <?php
-        } else {
-            echo '<ul class="menu">
-            <li><a href="/auth/index/login" data-toggle="modal"
-                >Ingresar</a></li>
-                <li><a href="/auth/registration/index">Registrar</a>
-                </li>
-            </ul>';
-        }
-        ?>
-
-
-    </div>
+        <li>
+            <a href="<?php echo $this->url('auth/default', array('controller' => 'index', 'action' => 'logout'));?>"><?php echo $this->translate('Logout'); ?></a> 
+        </li>
+    </ul>   
+</font>
+<?php
+} else {
+    echo '<ul class="menu">
+    <li><a href="/auth/index/login" data-toggle="modal"
+        >Ingresar</a></li>
+        <li><a href="/auth/registration/index">Registrar</a>
+        </li>
+    </ul>';
+}
+?>
 </div>
-
-
 </div>
-
-
-
-<!-- _______________________________________________________ -->
-
+</div>
 <div class="navbar navbar-default yamm" role="navigation" id="navbar">
     <div class="container">
         <div class="navbar-header">
@@ -125,579 +96,196 @@ if ($user = $this->identity()) {
                     <i class="fa fa-align-justify"></i>
                 </button>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                  <!--busquedas-->
-                  <i class="fa fa-search"></i>
-              </button>
-              <a class="btn btn-default navbar-toggle" href="basket.html">
-                <i class="fa fa-shopping-cart"></i> <!--carrito-->
-            </a>
-        </div>
-    </div>
-    <!--/.navbar-header -->
-
-    <div class="navbar-collapse collapse" id="navigation">
-
-        <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="<?php echo $this->url('home') ?>">Inicio</a>
-            </li>
-            <li class="dropdown yamm-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Tecnología <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <div class="yamm-content">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h5>Cámaras</h5>
-                                    <ul>
-                                        <li><a href="category.html">Canon</a>
-                                        </li>
-                                        <li><a href="category.html">Kodak</a>
-                                        </li>
-                                        <li><a href="category.html">Nikon</a>
-                                        </li>
-                                        <li><a href="category.html">Ver más</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5>Celulares</h5>
-                                    <ul>
-                                        <li><a href="category.html">Samsung</a>
-                                        </li>
-                                        <li><a href="category.html">Iphone</a>
-                                        </li>
-                                        <li><a href="category.html">Huawei</a>
-                                        </li>
-                                        <li><a href="category.html">Ver más</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5>Consolas</h5>
-                                    <ul>
-                                        <li><a href="category.html">PlayStation</a>
-                                        </li>
-                                        <li><a href="category.html">Xbox</a>
-                                        </li>
-                                        <li><a href="category.html">Nintendo</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5>Equipos de sonido</h5>
-                                    <ul>
-                                        <li><a href="category.html">Bose</a>
-                                        </li>
-                                        <li><a href="category.html">Panasonic</a>
-                                        </li>
-                                        <li><a href="category.html">Sony</a>
-                                        </li>
-                                        <li><a href="category.html">Samsung</a>
-                                        </li>
-                                        <li><a href="category.html">Ver más</a>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.yamm-content -->
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown yamm-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Computadores <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <div class="yamm-content">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h5>Portatiles</h5>
-                                    <ul>
-                                        <li><a href="category.html">Asus</a>
-                                        </li>
-                                        <li><a href="category.html">Mac</a>
-                                        </li>
-                                        <li><a href="category.html">Toshiba</a>
-                                        </li>
-                                        <li><a href="category.html">Ver más</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5>Escritorio</h5>
-                                    <ul>
-                                        <li><a href="category.html">Lenovo </a>
-                                        </li>
-                                        <li><a href="category.html">HP</a>
-                                        </li>
-                                        <li><a href="category.html">Mac</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5>Impresoras</h5>
-                                    <ul>
-                                        <li><a href="category.html">Epson</a>
-                                        </li>
-                                        <li><a href="category.html">Canon</a>
-                                        </li>
-                                        <li><a href="category.html">HP</a>
-                                        </li>
-                                        <li><a href="category.html">Lexmark</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h5>Accesorios</h5>
-                                    <ul>
-                                        <li><a href="category.html">Mouse</a>
-                                        </li>
-                                        <li><a href="category.html">Teclado</a>
-                                        </li>
-                                        <li><a href="category.html">Monitor</a>
-                                        </li>
-                                        <li><a href="category.html">Proyectores</a>
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- /.yamm-content -->
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown yamm-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Televisores <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <div class="yamm-content">
-                            <div class="row">
-
-                                <div class="col-sm-3">
-                                    <h5>Marcas</h5>
-                                    <ul>
-                                        <li><a href="register.html">Sony</a>
-                                        </li>
-                                        <li><a href="customer-orders.html">Panasonic</a>
-                                        </li>
-                                        <li><a href="customer-order.html">LG</a>
-                                        </li>
-                                        <li><a href="customer-wishlist.html">Samsung</a>
-                                        </li>
-                                        <li><a href="customer-account.html">Ver más</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-
-                            </div>
-                        </div>
-
-                        <!-- /.yamm-content -->
-                    </li>
-                </ul>
-            </li>
-
-
-        </ul>
-
-    </div>
-    <!--/.nav-collapse -->
-
-    <div class="navbar-buttons">
-
-        <div class="navbar-collapse collapse right" id="basket-overview">
-            <a href="<?php echo $this->url('cart');?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo $this->total_items; ?> productos en el carrito</span></a>
-        </div>
-        <!--/.nav-collapse -->
-
-        <div class="navbar-collapse collapse right" id="search-not-mobile">
-            <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                <span class="sr-only">Toggle search</span>
-                <i class="fa fa-search"></i>
-            </button>
-        </div>
-
-    </div>
-
-    <div class="collapse clearfix" id="search">
-
-        <form class="navbar-form" role="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar">
-                <span class="input-group-btn">
-
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-
-                </span>
-            </div>
-        </form>
-
-    </div>
-    <!--/.nav-collapse -->
-
-</div>
-<!-- /.container -->
-</div>
-<!-- /#navbar -->
-
-<!-- *** NAVBAR END *** -->
-
-
-
-<div id="all">
-
-
-    <?php echo $this->content; ?>
-
-    <!-- /#content -->
-
-        <!-- *** FOOTER ***
-        _________________________________________________________ -->
-        <div id="footer" data-animate="fadeInUp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <h4>Servicio al cliente</h4>
-
-                        <ul>
-                            <li><a href="text.html">Acerca de nosotros</a>
-                            </li>
-                            <li><a href="text.html">Terminos y condiciones</a>
-                            </li>
-                            <li><a href="faq.html">Preguntas frecuentes</a>
-                            </li>
-                            <li><a href="contact.html">Contactanos</a>
-                            </li>
-                        </ul>
-
-
-
-
-
-                        
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <div class="col-md-3 col-sm-6">
-
-                        <h4>Secciones</h4>
-                        <ul>
-                            <li><a href="#">Televisores</a>
-                            </li>
-                            <li><a href="#">Computadores</a>
-                            </li>
-                            <li><a href="#">Tecnología</a>
-                            </li>
-
-
-                        </ul>
-
-                        <hr class="hidden-md hidden-lg">
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-
-
-
-
-                    <div class="col-md-3 col-sm-6">
-
-                        <h4>Cuenta</h4>
-
-                        <ul>
-                            <li><a href="#" data-toggle="modal" data-target="#login-modal">Ingresar</a>
-                            </li>
-                            <li><a href="/auth/registration/index">Registrar</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /input-group -->
-
-
-
-
-                    <h4>Siguenos en</h4>
-
-                    <p class="social">
-                        <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
-                    </p>
-
-
-                </div>
-                <!-- /.col-md-3 -->
-
-            </div>
-            <!-- /.row -->
-
-        </div>
-        <!-- /.container -->
-    </div>
-    <!-- /#footer -->
-
-    <!-- *** FOOTER END *** -->
-
-
-
-
-        <!-- *** COPYRIGHT ***
-        _________________________________________________________ -->
-        <div id="copyright">
-            <div class="container">
-                <div class="col-md-6">
-                    <p class="pull-left">© 2016 Is4U</p>
-=======
-                <ul class="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Ingresar</a>
-                    </li>
-                    <li><a href="/auth/registration/index">Registrar</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="Login">Inicio de sesión</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="email-modal" placeholder="Nombre de usuario">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="password-modal" placeholder="Contraseña">
-                            </div>
-                            <p class="text-center">
-                                <button type="submit" class="btn btn-primary" method = "post"><i class="fa fa-sign-in"></i> Ingresar</button>
-                            </p>
-                        </form>
-                        <p class="text-center text-muted">¿No tienes cuenta?</p>
-                        <p class="text-center text-muted"><a href="/auth/registration/index"><strong>Registrarse</strong></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand home" href="<?php echo $this->url('home') ?>" data-animate-hover="bounce">
-                    <img src="<?php echo $this->basePath('img/logo.png') ?>" class="hidden-xs">
-                    <img src=  "<?php echo $this->basePath('img/logo-small.png') ?>" class="visible-xs"><span class="sr-only">Is4U- go to homepage</span>
+                    <!--busquedas-->
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="btn btn-default navbar-toggle" href="basket.html">
+                    <i class="fa fa-shopping-cart"></i> <!--carrito-->
                 </a>
-                <div class="navbar-buttons">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
-                        <!--navegacion-->
-                        <i class="fa fa-align-justify"></i>
-                    </button>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                        <!--busquedas-->
-                        <i class="fa fa-search"></i>
-                    </button>
-                    <a class="btn btn-default navbar-toggle" href="basket.html">
-                        <i class="fa fa-shopping-cart"></i> <!--carrito-->
-                    </a>
-                </div>
-            </div>
-            <div class="navbar-collapse collapse" id="navigation">
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="<?php echo $this->url('home') ?>">Inicio</a>
-                    </li>
-                    <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Tecnología <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="yamm-content">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h5>Cámaras</h5>
-                                            <ul>
-                                                <li><a href="category.html">Canon</a>
-                                                </li>
-                                                <li><a href="category.html">Kodak</a>
-                                                </li>
-                                                <li><a href="category.html">Nikon</a>
-                                                </li>
-                                                <li><a href="category.html">Ver más</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Celulares</h5>
-                                            <ul>
-                                                <li><a href="category.html">Samsung</a>
-                                                </li>
-                                                <li><a href="category.html">Iphone</a>
-                                                </li>
-                                                <li><a href="category.html">Huawei</a>
-                                                </li>
-                                                <li><a href="category.html">Ver más</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Consolas</h5>
-                                            <ul>
-                                                <li><a href="category.html">PlayStation</a>
-                                                </li>
-                                                <li><a href="category.html">Xbox</a>
-                                                </li>
-                                                <li><a href="category.html">Nintendo</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Equipos de sonido</h5>
-                                            <ul>
-                                                <li><a href="category.html">Bose</a>
-                                                </li>
-                                                <li><a href="category.html">Panasonic</a>
-                                                </li>
-                                                <li><a href="category.html">Sony</a>
-                                                </li>
-                                                <li><a href="category.html">Samsung</a>
-                                                </li>
-                                                <li><a href="category.html">Ver más</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Computadores <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="yamm-content">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h5>Portatiles</h5>
-                                            <ul>
-                                                <li><a href="category.html">Asus</a>
-                                                </li>
-                                                <li><a href="category.html">Mac</a>
-                                                </li>
-                                                <li><a href="category.html">Toshiba</a>
-                                                </li>
-                                                <li><a href="category.html">Ver más</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Escritorio</h5>
-                                            <ul>
-                                                <li><a href="category.html">Lenovo </a>
-                                                </li>
-                                                <li><a href="category.html">HP</a>
-                                                </li>
-                                                <li><a href="category.html">Mac</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Impresoras</h5>
-                                            <ul>
-                                                <li><a href="category.html">Epson</a>
-                                                </li>
-                                                <li><a href="category.html">Canon</a>
-                                                </li>
-                                                <li><a href="category.html">HP</a>
-                                                </li>
-                                                <li><a href="category.html">Lexmark</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Accesorios</h5>
-                                            <ul>
-                                                <li><a href="category.html">Mouse</a>
-                                                </li>
-                                                <li><a href="category.html">Teclado</a>
-                                                </li>
-                                                <li><a href="category.html">Monitor</a>
-                                                </li>
-                                                <li><a href="category.html">Proyectores</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Televisores <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="yamm-content">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h5>Marcas</h5>
-                                            <ul>
-                                                <li><a href="register.html">Sony</a>
-                                                </li>
-                                                <li><a href="customer-orders.html">Panasonic</a>
-                                                </li>
-                                                <li><a href="customer-order.html">LG</a>
-                                                </li>
-                                                <li><a href="customer-wishlist.html">Samsung</a>
-                                                </li>
-                                                <li><a href="customer-account.html">Ver más</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar-buttons">
-                <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="<?php echo $this->url('cart');?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo $this->total_items; ?> productos en el carrito</span></a>
-                </div>
-                <div class="navbar-collapse collapse right" id="search-not-mobile">
-                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="collapse clearfix" id="search">
-                <form class="navbar-form" role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </form>
             </div>
         </div>
+        <!--/.navbar-header -->
+        <div class="navbar-collapse collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="<?php echo $this->url('home') ?>">Inicio</a>
+                </li>
+                <li class="dropdown yamm-fw">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Tecnología <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h5>Cámaras</h5>
+                                        <ul>
+                                            <li><a href="category.html">Canon</a>
+                                            </li>
+                                            <li><a href="category.html">Kodak</a>
+                                            </li>
+                                            <li><a href="category.html">Nikon</a>
+                                            </li>
+                                            <li><a href="category.html">Ver más</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Celulares</h5>
+                                        <ul>
+                                            <li><a href="category.html">Samsung</a>
+                                            </li>
+                                            <li><a href="category.html">Iphone</a>
+                                            </li>
+                                            <li><a href="category.html">Huawei</a>
+                                            </li>
+                                            <li><a href="category.html">Ver más</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Consolas</h5>
+                                        <ul>
+                                            <li><a href="category.html">PlayStation</a>
+                                            </li>
+                                            <li><a href="category.html">Xbox</a>
+                                            </li>
+                                            <li><a href="category.html">Nintendo</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Equipos de sonido</h5>
+                                        <ul>
+                                            <li><a href="category.html">Bose</a>
+                                            </li>
+                                            <li><a href="category.html">Panasonic</a>
+                                            </li>
+                                            <li><a href="category.html">Sony</a>
+                                            </li>
+                                            <li><a href="category.html">Samsung</a>
+                                            </li>
+                                            <li><a href="category.html">Ver más</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown yamm-fw">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Computadores <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h5>Portatiles</h5>
+                                        <ul>
+                                            <li><a href="category.html">Asus</a>
+                                            </li>
+                                            <li><a href="category.html">Mac</a>
+                                            </li>
+                                            <li><a href="category.html">Toshiba</a>
+                                            </li>
+                                            <li><a href="category.html">Ver más</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Escritorio</h5>
+                                        <ul>
+                                            <li><a href="category.html">Lenovo </a>
+                                            </li>
+                                            <li><a href="category.html">HP</a>
+                                            </li>
+                                            <li><a href="category.html">Mac</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Impresoras</h5>
+                                        <ul>
+                                            <li><a href="category.html">Epson</a>
+                                            </li>
+                                            <li><a href="category.html">Canon</a>
+                                            </li>
+                                            <li><a href="category.html">HP</a>
+                                            </li>
+                                            <li><a href="category.html">Lexmark</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Accesorios</h5>
+                                        <ul>
+                                            <li><a href="category.html">Mouse</a>
+                                            </li>
+                                            <li><a href="category.html">Teclado</a>
+                                            </li>
+                                            <li><a href="category.html">Monitor</a>
+                                            </li>
+                                            <li><a href="category.html">Proyectores</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown yamm-fw">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Televisores <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h5>Marcas</h5>
+                                        <ul>
+                                            <li><a href="register.html">Sony</a>
+                                            </li>
+                                            <li><a href="customer-orders.html">Panasonic</a>
+                                            </li>
+                                            <li><a href="customer-order.html">LG</a>
+                                            </li>
+                                            <li><a href="customer-wishlist.html">Samsung</a>
+                                            </li>
+                                            <li><a href="customer-account.html">Ver más</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-buttons">
+            <div class="navbar-collapse collapse right" id="basket-overview">
+                <a href="<?php echo $this->url('cart');?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo $this->total_items; ?> productos en el carrito</span></a>
+            </div>
+            <!--/.nav-collapse -->
+            <div class="navbar-collapse collapse right" id="search-not-mobile">
+                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle search</span>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="collapse clearfix" id="search">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
     </div>
-    <div id="all">
+</div>
+<div id="all">
     <?php echo $this->content; ?>
     <div id="footer" data-animate="fadeInUp">
         <div class="container">
@@ -748,31 +336,16 @@ if ($user = $this->identity()) {
         </div>
     </div>
 </div>
-    <div id="copyright">
-        <div class="container">
-            <div class="col-md-6">
-                <p class="pull-left">© 2016 Is4U</p>
->>>>>>> 8417aa33162c2ed8aa9d3ad3db55916aa1a4ee3c
-
-            </div>
-            <div class="col-md-6">
-                <p class="pull-right">Developed by <a href="http://bootstrapious.com/e-commerce-templates">Is4U team</a> with help from <a href="http://kakusei.cz">Designové předměty</a> 
-                </p>
-            </div>
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-6">
+            <p class="pull-left">© 2016 Is4U</p>
+        </div>
+        <div class="col-md-6">
+            <p class="pull-right">Developed by <a href="http://bootstrapious.com/e-commerce-templates">Is4U team</a> with help from <a href="http://kakusei.cz">Designové předměty</a> 
+            </p>
         </div>
     </div>
-<<<<<<< HEAD
-    <!-- /#all -->
-
-
-    
-
-    <!-- *** SCRIPTS TO INCLUDE ***
-    _________________________________________________________ -->
-
-
-
-=======
->>>>>>> 8417aa33162c2ed8aa9d3ad3db55916aa1a4ee3c
+</div>
 </body>
 </html>
