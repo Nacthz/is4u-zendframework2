@@ -15,6 +15,7 @@ return array(
         'Admin',
         'ZendCart',
         'Auth',
+        'SpeckPaypal',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
