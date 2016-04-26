@@ -245,8 +245,7 @@ class RegistrationController extends AbstractActionController
 		->setSubject('Mensaje de confirmacion de registro Is4u')
 		->setBody("Profavor, Haga click al link para confirmar su registro => " . 
 	//			$this->getRequest()->getServer('HTTP_ORIGIN') 
-			'http://'.
-			$localIP.
+			'http://localhost:8080'.
 			$this->url()->fromRoute('auth/default', array(
 				'controller' => 'registration', 
 				'action' => 'confirm-email', 
