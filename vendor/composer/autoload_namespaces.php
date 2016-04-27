@@ -7,8 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
-    'ZendXml' => array($vendorDir . '/zendframework/zendxml/library'),
+    'ZendXml\\' => array($vendorDir . '/zendframework/zendxml/library'),
+    'ZendGData' => array($vendorDir . '/zendframework/zendgdata/library'),
     'ZendCart' => array($vendorDir . '/zendcart/zendcart/src'),
+    'WebinoImageThumb' => array($vendorDir . '/webino/webino-image-thumb/src'),
+    'SpeckPaypal' => array($vendorDir . '/speckcommerce/speck-paypal/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
-    'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src'),
 );
