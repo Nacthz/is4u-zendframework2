@@ -1,0 +1,46 @@
+
+<h1><?php echo $this->escapeHtml('Transaction'); ?></h1>
+
+<table class='table table-hover'>
+    <tbody>
+        <tr>
+            <td class="col-md-2"><?php echo $this->escapeHtml('Transaction'); ?></td>
+            <td class="col-md-10"><?php echo $this->escapehtml($transaction['TRANSACTIONID']); ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('Name'); ?></td>
+            <td><?php echo $this->escapehtml($transaction['NAME']); ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('Email'); ?></td>
+            <td><?php echo isset($transaction['EMAIL']) ? $this->escapehtml($transaction['EMAIL']) : 'n/a'; ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('Type'); ?></td>
+            <td><?php echo $this->escapehtml($transaction['TIMESTAMP']); ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('Type'); ?></td>
+            <td><?php echo $this->escapehtml($transaction['TYPE']); ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('Status'); ?></td>
+            <td><?php echo $this->escapehtml($transaction['STATUS']); ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('AMT'); ?></td>
+            <td><?php echo $this->escapehtml($transaction['AMT']); ?></td>
+        </tr>
+
+        <tr>
+            <td><?php echo $this->escapeHtml('Status'); ?></td>
+            <td><?php echo $this->escapehtml($transaction['CURRENCYCODE']); ?></td>
+        </tr>
+    </tbody>
+</table>
