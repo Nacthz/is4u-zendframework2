@@ -74,7 +74,13 @@
                                 </div>
                                 <div class="pull-right">
                                     <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
-                                    <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>
+                                    <!--<button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>-->
+                                    <!--//BOTON DE CHECKOUT-->
+                                    <a class='btn btn-success' href="<?php echo $this->url('payments-create'); ?>">
+                                        <?php echo $this->translate("CheckOut"); ?>
+                                    </a>
+                                    
+                                    
                                     </button>
                                 </div>
                             </div>

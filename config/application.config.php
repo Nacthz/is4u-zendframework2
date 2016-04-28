@@ -15,6 +15,7 @@ return array(
         'Admin',
         'ZendCart',
         'Auth',
+        'Payments',
         'SpeckPaypal',
     ),
 
