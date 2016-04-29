@@ -52,7 +52,7 @@ class Module
 					$config = $serviceManager->get('Config'); 
 					//$transport = new Smtp();  
                     $transport = new SmtpTransport();
-                    //echo $config['mail'];
+                    echo $config['mail'];
                     //echo '<pre>'; print_r($config); echo '</pre>';
 
                     $options   = new SmtpOptions($config['mail']['transport']['options']);

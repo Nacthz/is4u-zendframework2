@@ -13,10 +13,11 @@ class CartController extends AbstractActionController
 	public function indexAction()
     {
     	$total_paypal = $this->ZendCart()->total();
-        return array(
+    	return array(
             'items' => $this->ZendCart()->cart(),
             'total_items' => $this->ZendCart()->total_items(),
             'total' => $this->ZendCart()->total(),
+
         );
     }
 }

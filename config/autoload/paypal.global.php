@@ -8,15 +8,5 @@ return array(
 	        // Sandbox: https://api-3t.sandbox.paypal.com/nvp
 	        // Live: https://api-3t.paypal.com/nvp
 	        'endpoint' => 'https://api-3t.sandbox.paypal.com/nvp'
-    ),
-
-    'StoreOrdersTable' => array(
-            'name'      =>  'Item0',
-            'desc'      =>  'Description for Item0',
-            'amt'       =>  '20.00',
-            'number'    =>  '1234',
-            'qtv'       =>  '1',
-            'tax'       =>  '0.00'
-       
     )
 );
