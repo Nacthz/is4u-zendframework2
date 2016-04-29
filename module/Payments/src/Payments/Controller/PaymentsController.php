@@ -60,6 +60,12 @@ class PaymentsController extends AbstractActionController
         return $paypalRequest;
     }
 
+
+
+public function currency($from_Currency,$to_Currency,$amount) {
+  
+    return round($var,2);
+}
     /**
      * Create
      * Create a new PayPal Payment
@@ -75,14 +81,30 @@ class PaymentsController extends AbstractActionController
 
     $orderId = $request->getPost()->get('orderId');
 
-    
+        
+    $total_a_PAGAR=str_replace(",","", $this->params()->fromQuery('total_pagar'));
+
+
+  $amount = urlencode($total_a_PAGAR);
+  $from_Currency = urlencode('COP');
+  $to_Currency = urlencode('USD');
+  $get = file_get_contents("https://www.google.com/finance/converter?a=$amount&from=$from_Currency&to=$to_Currency");
+  $get = explode("<span class=bld>",$get);
+  $get = explode("</span>",$get[1]);  
+  $converted_amount = preg_replace("/[^0-9\.]/", null, $get[0]);
+  $converted_amount=round($converted_amount,2);
+    //echo $converted_amount ;
+
 
     $orderTable = new \Payments\Model\PaymentsModel();
     $order = $orderTable->findById(1);
+    $order->setAmt($converted_amount);
     $paypalRequest = $this->getPaypalRequest();
     $paymentDetails = new \SpeckPaypal\Element\PaymentDetails(array(
         'amt' => $order->getAmt()
     ));
+
+    //echo $order->getAmt();
     // Set the items
     $paymentDetails->setItems([ $order ]);
 

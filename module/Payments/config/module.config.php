@@ -31,9 +31,12 @@ return array(
                 ),
             ),
             'payments-create' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/payments/create',
+                    'route'    => '/payments/create/[:id]',
+                    'constraints' => array(
+                        'id' => '[0-9a-zA-Z]+',
+                    ),
                     'defaults' => array(
                         'controller' => 'Payments\Controller\Payments',
                         'action'     => 'create',

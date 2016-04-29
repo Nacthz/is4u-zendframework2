@@ -9,8 +9,10 @@ use Zend\View\Model\JsonModel;
 
 class CartController extends AbstractActionController
 {
-    public function indexAction()
+
+	public function indexAction()
     {
+    	$total_paypal = $this->ZendCart()->total();
         return array(
             'items' => $this->ZendCart()->cart(),
             'total_items' => $this->ZendCart()->total_items(),
