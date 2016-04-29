@@ -8,16 +8,17 @@
  */
 
 namespace Payments\Model;
-use Cart;
+
 
 class PaymentsModel
 {
-   
+    
+
     private $payment = [
     [
     'name'      =>  'Item0',
     'desc'      =>  'Description for Item0',
-    'amt'       =>   $total['sub-total'],
+    'amt'       =>  '999.640',
     'number'    =>  '1234',
     'qtv'       =>  '1',
     'tax'       =>  '0.00'
