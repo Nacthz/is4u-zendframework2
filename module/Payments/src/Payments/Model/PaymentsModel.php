@@ -8,26 +8,20 @@
  */
 
 namespace Payments\Model;
+use Cart;
 
 class PaymentsModel
 {
+   
     private $payment = [
-        [
-            'name'      =>  'Item0',
-            'desc'      =>  'Description for Item0',
-            'amt'       =>  '20.00',
-            'number'    =>  '1234',
-            'qtv'       =>  '1',
-            'tax'       =>  '0.00'
-        ],
-        [
-            'name'      =>  'Item1',
-            'desc'      =>  'Description for Item1',
-            'amt'       =>  '40.00',
-            'number'    =>  '5678',
-            'qtv'       =>  '1',
-            'tax'       =>  '0.00'
-        ],
+    [
+    'name'      =>  'Item0',
+    'desc'      =>  'Description for Item0',
+    'amt'       =>   $total['sub-total'],
+    'number'    =>  '1234',
+    'qtv'       =>  '1',
+    'tax'       =>  '0.00'
+    ],
     ];
 
     public function findById($id)

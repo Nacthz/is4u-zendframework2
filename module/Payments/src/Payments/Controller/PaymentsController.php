@@ -96,14 +96,7 @@ class PaymentsController extends AbstractActionController
     $token = $response->getToken();
 
 
-    //$paypalSession = new \Zend\Session\Container('paypal');
-    //$paypalSession->tokenId = $token;
-    //$paypalSession->orderId = $orderId;
-    // Redirect user to PayPal Express Checkout
     $this->redirect()->toUrl('https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=' . $token);
-
-        // Redirect to Paypal!
-        //sreturn $this->redirect()->toUrl(sprintf('https://www.%s.com/cgi-bin/webscr?cmd=_express-checkout&token=%s', $host, $response->getToken()));
     }
 
     /**

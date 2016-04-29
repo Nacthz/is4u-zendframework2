@@ -125,7 +125,7 @@ class RegistrationController extends AbstractActionController
 		$date = new \DateTime();
 		$data['usr_registration_date'] = $date->format('Y-m-d H:i:s');
 		$data['usr_registration_token'] = md5(uniqid(mt_rand(), true)); // $this->generateDynamicSalt();
-//		$data['usr_registration_token'] = uniqid(php_uname('n'), true);	
+	
 		$data['usr_email_confirmed'] = 0;
 		return $data;
 	}
