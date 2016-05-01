@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7daa7b9edfb50772983bbeb4254e6c62",
-    "content-hash": "3d66a8a143114f2565ce91ab12d214b8",
+    "hash": "8d895fa5a49feeb5a2e52444417563d1",
+    "content-hash": "ff44dab4e7d795544fa43f30f5a08ac1",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -87,6 +87,58 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "hybridauth/hybridauth",
+            "version": "2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "d2f0d638aa3f63f0763d9ee1fb63865376aac884"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/d2f0d638aa3f63f0763d9ee1fb63865376aac884",
+                "reference": "d2f0d638aa3f63f0763d9ee1fb63865376aac884",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hybrid": "hybridauth/"
+                },
+                "classmap": [
+                    "hybridauth/Hybrid"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(MIT or GPL-3.0+)"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "Open source social sign on PHP library.",
+            "homepage": "http://hybridauth.sourceforge.net",
+            "keywords": [
+                "OpenId",
+                "facebook",
+                "google",
+                "hybridauth",
+                "login",
+                "oauth",
+                "social",
+                "twitter",
+                "yahoo"
+            ],
+            "time": "2015-10-12 19:47:19"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1024,6 +1076,73 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21 13:59:46"
+        },
+        {
+            "name": "socalnick/scn-social-auth",
+            "version": "1.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocalNick/ScnSocialAuth.git",
+                "reference": "975363a105977dbd1a13463f7703260c022a3369"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocalNick/ScnSocialAuth/zipball/975363a105977dbd1a13463f7703260c022a3369",
+                "reference": "975363a105977dbd1a13463f7703260c022a3369",
+                "shasum": ""
+            },
+            "require": {
+                "hybridauth/hybridauth": "2.5.*",
+                "php": ">=5.3.3",
+                "zendframework/zend-authentication": "2.*",
+                "zendframework/zend-db": "2.*",
+                "zendframework/zend-eventmanager": "2.*",
+                "zendframework/zend-http": "2.*",
+                "zendframework/zend-i18n": "2.*",
+                "zendframework/zend-loader": "2.*",
+                "zendframework/zend-log": "2.*",
+                "zendframework/zend-modulemanager": "2.*",
+                "zendframework/zend-mvc": "2.*",
+                "zendframework/zend-serializer": "2.*",
+                "zendframework/zend-servicemanager": "2.*",
+                "zendframework/zend-session": "2.*",
+                "zendframework/zend-stdlib": "2.*",
+                "zendframework/zend-test": "2.*",
+                "zendframework/zend-uri": "2.*",
+                "zendframework/zend-view": "2.*",
+                "zf-commons/zfc-base": "0.1.*",
+                "zf-commons/zfc-user": "1.2.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ScnSocialAuth": "src/",
+                    "ScnSocialAuthTest": "test/"
+                },
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas Calugar",
+                    "email": "njcalugar@gmail.com",
+                    "homepage": "http://socalnick.github.com/"
+                }
+            ],
+            "description": "Uses the HybridAuth PHP library to Enable authentication via Google, Facebook, Twitter, Yahoo!, etc for the ZfcUser ZF2 module.",
+            "homepage": "https://github.com/SocalNick/ScnSocialAuth",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2015-10-10 22:18:45"
         },
         {
             "name": "speckcommerce/speck-paypal",
@@ -2088,16 +2207,16 @@
         },
         {
             "name": "zendframework/zend-file",
-            "version": "2.6.1",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-file.git",
-                "reference": "a5bccb3e36350e4b540d71cf0135871ae00dc707"
+                "reference": "8936999f244011525671db8d6e35a2f2232d5060"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-file/zipball/a5bccb3e36350e4b540d71cf0135871ae00dc707",
-                "reference": "a5bccb3e36350e4b540d71cf0135871ae00dc707",
+                "url": "https://api.github.com/repos/zendframework/zend-file/zipball/8936999f244011525671db8d6e35a2f2232d5060",
+                "reference": "8936999f244011525671db8d6e35a2f2232d5060",
                 "shasum": ""
             },
             "require": {
@@ -2122,8 +2241,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev",
-                    "dev-develop": "2.7-dev"
+                    "dev-master": "2.7-dev",
+                    "dev-develop": "2.8-dev"
                 }
             },
             "autoload": {
@@ -2140,7 +2259,7 @@
                 "file",
                 "zf2"
             ],
-            "time": "2016-03-02 18:30:10"
+            "time": "2016-04-28 19:21:43"
         },
         {
             "name": "zendframework/zend-filter",
@@ -2204,16 +2323,16 @@
         },
         {
             "name": "zendframework/zend-form",
-            "version": "2.8.0",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-form.git",
-                "reference": "1b881dc4bc366d68ca88aaa946c788519eeb83f1"
+                "reference": "0e8cce481470443b716a155e5f6bf40242d30635"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-form/zipball/1b881dc4bc366d68ca88aaa946c788519eeb83f1",
-                "reference": "1b881dc4bc366d68ca88aaa946c788519eeb83f1",
+                "url": "https://api.github.com/repos/zendframework/zend-form/zipball/0e8cce481470443b716a155e5f6bf40242d30635",
+                "reference": "0e8cce481470443b716a155e5f6bf40242d30635",
                 "shasum": ""
             },
             "require": {
@@ -2225,10 +2344,11 @@
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit": "^4.8",
                 "zendframework/zend-cache": "^2.6.1",
                 "zendframework/zend-captcha": "^2.5.4",
                 "zendframework/zend-code": "^2.6",
+                "zendframework/zend-escaper": "^2.5",
                 "zendframework/zend-eventmanager": "^2.6.2 || ^3.0",
                 "zendframework/zend-filter": "^2.6",
                 "zendframework/zend-i18n": "^2.6",
@@ -2264,7 +2384,10 @@
             "autoload": {
                 "psr-4": {
                     "Zend\\Form\\": "src/"
-                }
+                },
+                "files": [
+                    "autoload/formElementManagerPolyfill.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2275,7 +2398,7 @@
                 "form",
                 "zf2"
             ],
-            "time": "2016-04-07 22:29:08"
+            "time": "2016-05-01 20:34:32"
         },
         {
             "name": "zendframework/zend-http",
@@ -4369,9 +4492,193 @@
                 "zf2"
             ],
             "time": "2016-02-04 21:02:08"
+        },
+        {
+            "name": "zf-commons/zfc-base",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcBase.git",
+                "reference": "fc68a49b58ba68584a9a4c44a1ca9df12b30d1bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcBase/zipball/fc68a49b58ba68584a9a4c44a1ca9df12b30d1bf",
+                "reference": "fc68a49b58ba68584a9a4c44a1ca9df12b30d1bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-db": "~2.1",
+                "zendframework/zend-eventmanager": "~2.1",
+                "zendframework/zend-loader": "~2.1",
+                "zendframework/zend-modulemanager": "~2.1",
+                "zendframework/zend-mvc": "~2.1",
+                "zendframework/zend-servicemanager": "~2.1",
+                "zendframework/zend-stdlib": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZfcBase": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                },
+                {
+                    "name": "Evan Coury",
+                    "email": "me@evancoury.com",
+                    "homepage": "http://blog.evan.pro/"
+                }
+            ],
+            "description": "A set of genetic (abstract) classes which are commonly used across multiple modules.",
+            "homepage": "https://github.com/ZF-Commons/ZfcBase",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2013-05-02 12:33:49"
+        },
+        {
+            "name": "zf-commons/zfc-user",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcUser.git",
+                "reference": "6bc1372f1198e01fed3a187bbeeba007356fae9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcUser/zipball/6bc1372f1198e01fed3a187bbeeba007356fae9e",
+                "reference": "6bc1372f1198e01fed3a187bbeeba007356fae9e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-authentication": "~2.1",
+                "zendframework/zend-crypt": "~2.1",
+                "zendframework/zend-form": "~2.1",
+                "zendframework/zend-http": "~2.1",
+                "zendframework/zend-inputfilter": "~2.1",
+                "zendframework/zend-loader": "~2.1",
+                "zendframework/zend-modulemanager": "~2.1",
+                "zendframework/zend-mvc": "~2.1",
+                "zendframework/zend-servicemanager": "~2.1",
+                "zendframework/zend-session": "~2.1",
+                "zendframework/zend-stdlib": "~2.1",
+                "zendframework/zend-validator": "~2.1",
+                "zendframework/zend-view": "~2.1",
+                "zf-commons/zfc-base": "0.*"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "1.4.*",
+                "phpunit/phpunit": ">=3.7,<4",
+                "squizlabs/php_codesniffer": "1.4.*",
+                "zendframework/zend-captcha": "~2.1"
+            },
+            "suggest": {
+                "zendframework/zend-captcha": "Zend\\Captcha if you want to use the captcha component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZfcUser": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                },
+                {
+                    "name": "Evan Coury",
+                    "email": "me@evancoury.com",
+                    "homepage": "http://blog.evan.pro/"
+                }
+            ],
+            "description": "A generic user registration and authentication module for ZF2. Supports Zend\\Db and Doctrine2.",
+            "homepage": "https://github.com/ZF-Commons/ZfcUser",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2015-08-17 11:49:46"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "mockery/mockery",
+            "version": "0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/padraic/mockery.git",
+                "reference": "35f0e18022f5538df9df8920a3d96c1761d63220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/35f0e18022f5538df9df8920a3d96c1761d63220",
+                "reference": "35f0e18022f5538df9df8920a3d96c1761d63220",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "hamcrest/hamcrest": "1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mockery": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pádraic Brady",
+                    "email": "padraic.brady@gmail.com",
+                    "homepage": "http://blog.astrumfutura.com"
+                }
+            ],
+            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succint API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
+            "homepage": "http://github.com/padraic/mockery",
+            "keywords": [
+                "BDD",
+                "TDD",
+                "library",
+                "mock",
+                "mock objects",
+                "mockery",
+                "stub",
+                "test",
+                "test double",
+                "testing"
+            ],
+            "time": "2013-04-01 12:13:17"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {

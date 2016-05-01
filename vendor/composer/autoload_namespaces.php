@@ -7,11 +7,17 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
+    'ZfcUser' => array($vendorDir . '/zf-commons/zfc-user/src'),
+    'ZfcBase' => array($vendorDir . '/zf-commons/zfc-base/src'),
     'ZendXml\\' => array($vendorDir . '/zendframework/zendxml/library'),
     'ZendGData' => array($vendorDir . '/zendframework/zendgdata/library'),
     'ZendCart' => array($vendorDir . '/zendcart/zendcart/src'),
     'WebinoImageThumb' => array($vendorDir . '/webino/webino-image-thumb/src'),
     'SpeckPaypal' => array($vendorDir . '/speckcommerce/speck-paypal/src'),
+    'ScnSocialAuthTest' => array($baseDir . '/test', $vendorDir . '/socalnick/scn-social-auth/test'),
+    'ScnSocialAuth' => array($baseDir . '/src', $vendorDir . '/socalnick/scn-social-auth/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Hybrid' => array($vendorDir . '/hybridauth/hybridauth/hybridauth'),
 );

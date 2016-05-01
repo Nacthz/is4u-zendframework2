@@ -17,6 +17,9 @@ return array(
         'Auth',
         'Payments',
         'SpeckPaypal',
+        'ScnSocialAuth',
+        'ZfcBase',
+        'ZfcUser',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
