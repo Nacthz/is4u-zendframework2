@@ -17,6 +17,10 @@ echo $this->form()->closeTag();*/
 
 <div class="fade" 
 data-animate="fadeInDown" id="login-modal" role="dialog" aria-labelledby="Login" aria-hidden="true">
+
+
+
+
 <div class="modal-dialog modal-sm">
 
 	<div class="modal-content">
@@ -41,12 +45,15 @@ data-animate="fadeInDown" id="login-modal" role="dialog" aria-labelledby="Login"
 			<?php echo $this->form()->closeTag();?>
 		<p>
 		<center>  
-	<a href="<?php echo $this->url('auth/default', array('controller' => 'registration', 'action' => 'forgotten-password'));?>"><?php echo $this->translate('Forgotten Password'); ?></a></center>
+	<a href="<?php echo $this->url('auth/default', array('controller' => 'registration', 'action' => 'forgotten-password'));?>"><?php echo $this->translate('Forgotten Password'); ?></a>
+	
+	
 	</p>
 	
 		<p class="text-center text-muted">¿No tienes cuenta?</p>
-
+		<a class="btn" href="/user/login/facebook">Login with Facebook</a>
 		<p class="text-center text-muted"><a href="/auth/registration/index"><strong>Registrarse</strong></a></p>
+		</center>
 	</div>
 </div>
 </div>
