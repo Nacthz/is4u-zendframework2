@@ -19,7 +19,7 @@ function distance($lat1, $lon1, $lat2, $lon2, $unit) {
 }
 
 
-function costoEnvio($country,){
+function costoEnvio($country2,$city2){
     $precio =0;
     echo "Envio desde: ";
     $address1 = "Colombia+Bucaramanga";
@@ -41,8 +41,8 @@ function costoEnvio($country,){
 
 
     echo "Envio hasta: ";
-    $address2 = "$country+$city";
-    $region2=$country;
+    $address2 = "$country2+$city2";
+    $region2=$country2;
     $url = "http://maps.google.com/maps/api/geocode/json?address=$address2&sensor=false&region=$region2";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -62,7 +62,7 @@ function costoEnvio($country,){
     $distancia = distance($lat1, $long1,$lat2, $long2, "K");
     echo ((string)$distancia . " Kilometers<br>");
     echo "<br>";
-    $precio = $distancia*50;
+    return $precio = $distancia*50;
     echo "Precio: $". $precio . " Pesos";
 }
 
@@ -161,10 +161,9 @@ function costoEnvio($country,){
                                 <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
                             </div>
                             <div class="pull-right">
-                                <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
-                                <!--<button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>-->
+                                <input class="btn btn-default" type="button" onclick="costoEnvio()"><i class="fa fa-refresh"></i></input>
                                 <!--//BOTON DE CHECKOUT-->
-                                <a class='btn btn-success' href="<?php  echo $this->url('payments-create'); echo '?total_pagar='; echo $total['sub-total']+$precio   ?>">
+                                <a class='btn btn-success' href="<?php echo $this->url('payments-create'); echo '?total_pagar='; echo $total['sub-total']+$precio   ?>">
                                     <?php echo $this->translate("CheckOut"); ?>
                                 </a>
 
@@ -196,12 +195,12 @@ function costoEnvio($country,){
                                 <th>$<?php echo $total['sub-total'];?></th>
                             </tr>
                             <tr>
-                                <td>Tax</td>
-                                <th>$0.00</th>
+                                <td>Shipping</td>
+                                <th>$<?php echo $precio;?></th>
                             </tr>
                             <tr class="total">
                                 <td>Total</td>
-                                <th>$<?php echo $total['sub-total'];?></th>
+                                <th>$<?php echo $total['sub-total']+$precio;?></th>
                             </tr>
                         </tbody>
                     </table>
