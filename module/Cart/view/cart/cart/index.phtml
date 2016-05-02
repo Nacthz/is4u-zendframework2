@@ -1,4 +1,71 @@
 <?php $this->layout()->setVariable('total_items', $total_items); 
+
+function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+
+  $theta = $lon1 - $lon2;
+  $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+  $dist = acos($dist);
+  $dist = rad2deg($dist);
+  $miles = $dist * 60 * 1.1515;
+  $unit = strtoupper($unit);
+
+  if ($unit == "K") {
+    return ($miles * 1.609344);
+} else if ($unit == "N") {
+  return ($miles * 0.8684);
+} else {
+    return $miles;
+}
+}
+
+
+function costoEnvio($country,){
+    $precio =0;
+    echo "Envio desde: ";
+    $address1 = "Colombia+Bucaramanga";
+    $region1="Colombia";
+    $url = "http://maps.google.com/maps/api/geocode/json?address=$address1&sensor=false&region=$region1";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $response_a = json_decode($response);
+    $lat1 = $response_a->results[0]->geometry->location->lat;
+    $long1 = $response_a->results[0]->geometry->location->lng;
+    echo $address1;
+    echo "<br>";
+
+
+    echo "Envio hasta: ";
+    $address2 = "$country+$city";
+    $region2=$country;
+    $url = "http://maps.google.com/maps/api/geocode/json?address=$address2&sensor=false&region=$region2";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $response_a = json_decode($response);
+    $lat2 = $response_a->results[0]->geometry->location->lat;
+    $long2 = $response_a->results[0]->geometry->location->lng;
+    echo $address2;
+    echo "<br>";
+
+    echo "distancia: ";
+    $distancia = distance($lat1, $long1,$lat2, $long2, "K");
+    echo ((string)$distancia . " Kilometers<br>");
+    echo "<br>";
+    $precio = $distancia*50;
+    echo "Precio: $". $precio . " Pesos";
+}
+
 ?>
 
 
@@ -9,7 +76,7 @@
 
             <div class="col-md-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">Inicio</a>
+                    <li><a href="<?php echo $this->url('home') ?>">Inicio</a>
                     </li>
                     <li>Carrito de compras</li>
                 </ul>
@@ -40,7 +107,7 @@
                                                 <td>
                                                     <a href="<?php echo $this->url('product',
                                                         array('id' => $key['id']));?>">
-                                                        <img src="http://localhost:8080/img/<?php echo $key['options']['img'];?>" alt="<?php echo $key['id']; ?>">
+                                                        <img src="<?php echo $this->basePath('img/'. $key['options']['img']);?>" alt="<?php echo $key['id']; ?>">
                                                     </a>
                                                 </td>
                                                 <td><a href="<?php echo $this->url('product',
@@ -65,6 +132,25 @@
                                     </tfoot>
                                 </table>
                             </div>
+
+                            <h4>Checkout</h4>
+
+                            <div class="form-group">
+                                <label for="firstname">Firstname</label>
+                                <input type="text" class="form-control" id="firstname">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Lastname</label>
+                                <input type="text" class="form-control" id="lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" name="city" class="form-control" id="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input class="form-control" name="city" id="country"></input>
+                            </div>
                         <?php else: ?>
                             <h4>El carrito de compras esta vacio</h4>
                         <?php endif;?>
@@ -78,7 +164,7 @@
                                 <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
                                 <!--<button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>-->
                                 <!--//BOTON DE CHECKOUT-->
-                                <a class='btn btn-success' href="<?php  echo $this->url('payments-create'); echo '?total_pagar='; echo $total['sub-total']   ?>">
+                                <a class='btn btn-success' href="<?php  echo $this->url('payments-create'); echo '?total_pagar='; echo $total['sub-total']+$precio   ?>">
                                     <?php echo $this->translate("CheckOut"); ?>
                                 </a>
 

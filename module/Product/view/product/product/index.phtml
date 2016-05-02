@@ -24,7 +24,8 @@
 	<div class="row" id="productMain">
 		<div class="col-sm-6">
 			<div id="mainImage">
-				<img src="http://localhost:8080/img/<?php echo $this->escapeHtml($product->photo); ?> " alt="" class="img-responsive">
+			
+				<img src="<?php echo $this->basePath('img/'.$this->escapeHtml($product->photo)); ?> " alt="" class="img-responsive">
 			</div>
 
 			<div class="ribbon sale">
